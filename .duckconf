@@ -1,6 +1,0 @@
-export duckimagebase="nodalpat";
-export duckporting="3000:3000";
-export duckuser="jgwill";
-
-
-
