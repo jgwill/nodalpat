@@ -1,0 +1,7 @@
+#!/bin/bash
+
+#Load the Duck conf env
+source .duckconf
+
+echo "Duck env Set"
+

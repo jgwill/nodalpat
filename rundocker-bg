@@ -1,0 +1,18 @@
+source .duckconf
+
+
+# insure we are stopped
+./stopdocker
+
+
+#@a runs our service in BG
+docker run -d \
+  -v ${PWD}:/usr/src/app \
+  -v /usr/src/app/node_modules \
+  -p $duckporting \
+  --name \
+  $duckimagebase-container $duckimagebase  \
+	&& echo "$duckimagebase-container Started in background"
+
+
+

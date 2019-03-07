@@ -1,0 +1,9 @@
+source .duckconf
+
+
+docker run -it \
+  -v ${PWD}:/usr/src/app \
+  -v /usr/src/app/node_modules \
+  -p $duckporting \
+  --rm \
+  $duckimagebase

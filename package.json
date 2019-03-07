@@ -1,0 +1,32 @@
+{
+  "name": "nodalpat",
+  "version": "1.0.0",
+  "description": "nodalpat is a base for running patternlab in a docker container",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dk:build": "source .duckconf ; docker build -t $duckimagebase .",
+    "dk:run-fg": "./rundocker-fg",
+    "dk:run-bg": "./stopdocker ; ./rundocker-bg",
+    "dk:run": "npm run dk:run-bg",
+    "dk:stop": "./stopdocker",
+    "dk:publish:tag":"source .duckconf ; docker tag $duckimagebase $duckuser/$duckimagebase",
+    "dk:publish:push":"docker push $duckuser/$duckimagebase:latest",
+    "dk:release":"source .duckconf ;echo \"Tagging the Imagei $duckuser/$duckimagebase\" ;npm run dk:publish:tag ; echo \"Pushing the image to Docker...\" ;npm run dk:publish:push",
+    "c": "cat package.json | grep dk                       # List these commands",
+    "dk:bash":"echo \"Running a Bash of your Pushed Docker image\";source .duckconf ; docker run -i -t --rm $duckuser/$duckimagebase /bin/bash",
+    "dk:test":"npm run dk:bash",
+    "dk:test:env":"./duckenv ; echo $duckuser/$duckimagebase"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jgwill/nodalpat.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jgwill/nodalpat/issues"
+  },
+  "homepage": "https://github.com/jgwill/nodalpat#readme"
+}
